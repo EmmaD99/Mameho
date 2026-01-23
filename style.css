@@ -4,7 +4,7 @@
 :root {
   --bg: #ffffff;
   --text: #000000;
-  --accent: #8B0000;
+  --accent: #4CAF50; /* VERT POMME */
   --section-padding: 120px;
   --font: Arial, Helvetica, sans-serif;
 }
@@ -60,10 +60,10 @@ body {
 .menu-overlay {
   position: fixed;
   inset: 0;
-  background: #69233F;
+  background: #4CAF50; /* VERT POMME */
   opacity: 0;
   pointer-events: none;
-  transition: 0.3s;
+  transition: opacity 0.3s ease;
   z-index: 2000;
   overflow: hidden;
 }
@@ -93,19 +93,21 @@ body {
 
 .menu-links a {
   color: #fff;
-  font-size: 28px;
+  font-size: 36px;
+  font-weight: 700;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
 .close-btn {
   position: absolute;
   top: 30px;
   right: 40px;
-  font-size: 28px;
+  font-size: 30px;
   color: #fff;
+  background: none;
+  border: none;
   cursor: pointer;
-  z-index: 10;
 }
 
 /* ===============================
@@ -132,13 +134,15 @@ body {
   animation-timing-function: linear;
   animation-fill-mode: forwards;
   opacity: 1;
-  filter: drop-shadow(0 0 2px #fff); /* contour blanc pour visibilité */
 }
 
 @keyframes fall {
-  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-  50% { transform: translateY(50vh) rotate(180deg); opacity: 1; }
-  100% { transform: translateY(110vh) rotate(360deg); opacity: 1; }
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+  }
 }
 
 /* ===============================
@@ -146,14 +150,14 @@ body {
 ================================ */
 .hero {
   height: 100vh;
-  background: url("Photos/Pommes.jpg") center/cover no-repeat;
+  background: url("Photos/Pommes.jpg") center / cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .hero-overlay {
-  background: rgba(0,0,0,0.45);
+  background: rgba(0, 0, 0, 0.45);
   padding: 50px 30px;
   border-radius: 12px;
   text-align: center;
@@ -187,7 +191,7 @@ body {
 }
 
 /* ===============================
-   NOS VINS
+   NOS JUS
 ================================ */
 .grid {
   display: grid;
@@ -204,15 +208,8 @@ body {
   border-radius: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card figure:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 34px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .card img {
@@ -226,7 +223,6 @@ body {
 .card figcaption {
   font-size: 18px;
   font-weight: 700;
-  letter-spacing: 1px;
   text-align: center;
 }
 
@@ -274,6 +270,7 @@ body {
   .grid {
     grid-template-columns: repeat(2, auto);
   }
+
   .hero h1 {
     font-size: 60px;
   }
@@ -295,5 +292,9 @@ body {
 
   .section {
     padding: 80px 20px;
+  }
+
+  .menu-links a {
+    font-size: 30px;
   }
 }
