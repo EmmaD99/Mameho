@@ -20,6 +20,7 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 /* ===============================
@@ -60,18 +61,26 @@ body {
   position: fixed;
   inset: 0;
   background: #69233F;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   opacity: 0;
   pointer-events: none;
   transition: 0.3s;
   z-index: 2000;
+  overflow: hidden;
 }
 
 .menu-overlay.active {
   opacity: 1;
   pointer-events: auto;
+}
+
+.menu-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .menu-links {
@@ -96,6 +105,40 @@ body {
   font-size: 28px;
   color: #fff;
   cursor: pointer;
+  z-index: 10;
+}
+
+/* ===============================
+   POMMES TOMBANTES
+================================ */
+.falling-apples {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.apple {
+  position: absolute;
+  top: -60px;
+  width: 50px;
+  height: 50px;
+  background-image: url('Photos/Pomme.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  opacity: 1;
+  filter: drop-shadow(0 0 2px #fff); /* contour blanc pour visibilité */
+}
+
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  50% { transform: translateY(50vh) rotate(180deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 1; }
 }
 
 /* ===============================
@@ -103,7 +146,7 @@ body {
 ================================ */
 .hero {
   height: 100vh;
-  background: url("Photos/Barrique.jpg") center / cover no-repeat;
+  background: url("Photos/Pommes.jpg") center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,7 +187,7 @@ body {
 }
 
 /* ===============================
-   NOS VINS – ÉTIQUETTES
+   NOS VINS
 ================================ */
 .grid {
   display: grid;
