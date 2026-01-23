@@ -60,7 +60,7 @@ body {
 .menu-overlay {
   position: fixed;
   inset: 0;
-  background: #4CAF50; /* VERT POMME */
+  background: var(--accent); /* VERT POMME */
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -137,12 +137,8 @@ body {
 }
 
 @keyframes fall {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  100% {
-    transform: translateY(110vh) rotate(360deg);
-  }
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
 }
 
 /* ===============================
@@ -165,12 +161,12 @@ body {
 }
 
 .hero h1 {
-  font-size: 80px;
+  font-size: clamp(60px, 8vw, 80px);
   letter-spacing: 5px;
 }
 
 .hero p {
-  font-size: 24px;
+  font-size: clamp(20px, 3vw, 24px);
 }
 
 /* ===============================
@@ -185,50 +181,77 @@ body {
 }
 
 .section h2 {
-  font-size: 36px;
+  font-size: clamp(28px, 4vw, 36px);
   margin-bottom: 60px;
   text-align: center;
 }
 
 /* ===============================
-   NOS JUS
+   NOS JUS - CARTES RESPONSIVES
 ================================ */
+.green-bg {
+  background-color: var(--accent);
+  color: #fff;
+  padding: var(--section-padding) 40px;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(6, auto);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 32px;
-  justify-content: center;
+  justify-items: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .card figure {
-  width: 280px;
-  height: 400px;
-  padding: 5px;
-  background: #fff;
-  border-radius: 16px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  height: 100%;
+  margin: 0;
 }
 
 .card img {
   width: 100%;
-  height: 350px;
-  object-fit: contain;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  height: auto;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-bottom: 1px solid #ddd;
 }
 
 .card figcaption {
-  font-size: 18px;
-  font-weight: 700;
+  padding: 10px;
   text-align: center;
+  font-weight: 700;
+  color: #000;
+  font-size: clamp(14px, 2vw, 18px);
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .wine-link {
   text-decoration: none;
   color: inherit;
+  display: block;
+  height: 100%;
 }
 
 /* ===============================
@@ -260,41 +283,25 @@ body {
 /* ===============================
    RESPONSIVE
 ================================ */
-@media (max-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(4, auto);
-  }
+@media (max-width: 1200px) { 
+  .grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 }
 
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(2, auto);
-  }
-
-  .hero h1 {
-    font-size: 60px;
-  }
+@media (max-width: 900px)  { 
+  .grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .hero h1 { font-size: clamp(50px, 8vw, 60px); }
+  .hero p { font-size: clamp(18px, 3vw, 22px); }
 }
 
-@media (max-width: 600px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .card figure {
-    width: 320px;
-    height: 440px;
-  }
-
-  .card img {
-    height: 380px;
-  }
-
-  .section {
-    padding: 80px 20px;
-  }
-
-  .menu-links a {
-    font-size: 30px;
-  }
+@media (max-width: 600px)  { 
+  .grid { grid-template-columns: 1fr; }
+  .card { max-width: 100%; }
+  .card img { height: auto; }
+  .card figcaption { font-size: clamp(13px, 4vw, 16px); }
+  .section { padding: 80px 20px; }
+  .menu-links a { font-size: 30px; }
+  .hero h1 { font-size: clamp(40px, 10vw, 50px); }
+  .hero p { font-size: clamp(16px, 4vw, 20px); }
+  .two-cols { grid-template-columns: 1fr; gap: 40px; }
+  .photo { height: auto; width: 100%; }
 }
