@@ -14,9 +14,8 @@ function createFallingApples() {
     const apple = document.createElement('div');
     apple.classList.add('apple', Math.random() > 0.5 ? 'red' : 'green');
 
-    const size = Math.random() * 5 + 5; // 5vw à 10vw
+    const size = Math.random() * 5 + 5;
     apple.style.width = size + 'vw';
-
     apple.style.left = Math.random() * 100 + 'vw';
     apple.style.animationDuration = (4 + Math.random() * 3) + 's';
     apple.style.animationDelay = Math.random() * 2 + 's';
@@ -66,4 +65,41 @@ revealElements.forEach(el => {
   el.style.transform = 'translateY(40px)';
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   revealObserver.observe(el);
+});
+
+// ===============================
+// CONTACT - VISUEL UNIQUEMENT
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
+  const contactForm = document.querySelector(".contact-form-premium");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", e => {
+      e.preventDefault();
+      alert("Merci pour votre message 🌿");
+    });
+  }
+});
+
+// ===============================
+// CARROUSEL PHOTOS
+// ===============================
+const track = document.querySelector('.carousel-track');
+const slides = Array.from(track.children);
+const nextBtn = document.querySelector('.carousel-btn.next');
+const prevBtn = document.querySelector('.carousel-btn.prev');
+let currentIndex = 0;
+
+function updateCarousel() {
+  track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
+}
+
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel();
+});
+
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  updateCarousel();
 });

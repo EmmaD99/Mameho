@@ -23,9 +23,8 @@
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#jus">Nos Jus de Fruits</a></li>
       <li><a href="#domaine">Le Domaine</a></li>
-      <li><a href="#evenements">Événements</a></li>
+      <li><a href="#photos">Photos</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="#terroirs">Nos Terroirs</a></li>
     </ul>
   </div>
 </nav>
@@ -106,57 +105,69 @@
     </div>
   </section>
 
-  <!-- EVENEMENTS -->
-  <section id="evenements" class="section alt reveal">
-    <h2>Événements</h2>
-    <div class="grid">
-      <div class="card">
-        <figure>
-          <img src="Photos/evenement-1.jpg" alt="Événement Mameho 1" loading="lazy">
-          <figcaption>Événement 1</figcaption>
-        </figure>
+  <!-- PHOTOS - CARROUSEL -->
+  <section id="photos" class="section alt reveal">
+    <h2>Photos</h2>
+    <div class="carousel-container">
+      <button class="carousel-btn prev">&#10094;</button>
+      <div class="carousel-track">
+        <div class="carousel-slide"><img src="Photos/evenement-1.jpg" alt="Photo 1" loading="lazy"></div>
+        <div class="carousel-slide"><img src="Photos/evenement-2.jpg" alt="Photo 2" loading="lazy"></div>
+        <div class="carousel-slide"><img src="Photos/evenement-3.jpg" alt="Photo 3" loading="lazy"></div>
       </div>
-      <div class="card">
-        <figure>
-          <img src="Photos/evenement-2.jpg" alt="Événement Mameho 2" loading="lazy">
-          <figcaption>Événement 2</figcaption>
-        </figure>
-      </div>
-      <div class="card">
-        <figure>
-          <img src="Photos/evenement-3.jpg" alt="Événement Mameho 3" loading="lazy">
-          <figcaption>Événement 3</figcaption>
-        </figure>
-      </div>
+      <button class="carousel-btn next">&#10095;</button>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section reveal">
-    <div class="two-cols">
-      <div>
-        <h2>Contact</h2>
-        <p>France</p>
-        <p>Email : <a href="mailto:contact@mameho.fr">contact@mameho.fr</a></p>
-      </div>
-      <img src="Photos/contact.jpg" alt="Contact Mameho" class="photo" loading="lazy">
-    </div>
-  </section>
+  <section id="contact" class="section contact-premium reveal">
+    <h2>Nous contacter</h2>
 
-  <!-- TERROIRS -->
-  <section id="terroirs" class="section reveal">
-    <h2>Nos Terroirs</h2>
-    <div class="map-container">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253427.15372855223!2d3.4122279765059677!3d48.347168982638174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47eedd7b519858cf%3A0xd20859f38bd7bf8d!2s10290%20Marcilly-le-Hayer%2C%20France!5e0!3m2!1sfr!2sus!4v1706300000000!5m2!1sfr!2sus"
-        width="100%"
-        height="400"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Carte de nos terroirs">
-      </iframe>
+    <div class="contact-wrapper">
+
+      <!-- INFOS -->
+      <div class="contact-left">
+        <h3>Domaine Mameho</h3>
+
+        <p class="contact-address">
+          3 rue de Hauteroux<br>
+          10290 Marcilly-le-Hayer<br>
+          France
+        </p>
+
+        <p class="contact-mail">
+          <a href="mailto:contact@mameho.fr">contact@mameho.fr</a>
+        </p>
+
+        <div class="contact-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.5!2d3.412228!3d48.347169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f15!3m3!1m2!1s0x47eedd7b519858cf%3A0xd20859f38bd7bf8d!2s3%20Rue%20de%20Hauteroux%2C%2010290%20Marcilly-le-Hayer!5e0!3m2!1sfr!2sfr!4v1700000000000"
+            loading="lazy"
+            title="Domaine Mameho">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- FORMULAIRE (VISUEL) -->
+      <form class="contact-form-premium">
+        <div class="field">
+          <input type="text" required>
+          <label>Nom</label>
+        </div>
+
+        <div class="field">
+          <input type="email" required>
+          <label>Email</label>
+        </div>
+
+        <div class="field">
+          <textarea rows="5" required></textarea>
+          <label>Message</label>
+        </div>
+
+        <button type="submit">Envoyer le message</button>
+      </form>
+
     </div>
   </section>
 
