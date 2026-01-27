@@ -15,19 +15,21 @@ function createFallingApples() {
     const apple = document.createElement('div');
     apple.classList.add('apple', Math.random() > 0.5 ? 'red' : 'green');
 
-    // ✅ FIX MOBILE : taille en PX (et non en vw)
+    // Taille aléatoire en px
     const size = Math.random() * 30 + 30; // 30px → 60px
     apple.style.width = size + 'px';
     apple.style.height = size + 'px';
 
+    // Position horizontale aléatoire
     apple.style.left = Math.random() * 100 + 'vw';
+
+    // Durée et délai aléatoires
     apple.style.animationDuration = (4 + Math.random() * 3) + 's';
     apple.style.animationDelay = Math.random() * 2 + 's';
-    apple.style.setProperty('--wind', (Math.random() * 80 - 40) + 'px');
 
     appleContainer.appendChild(apple);
 
-    // ✅ FIX SAFARI / CHROME MOBILE
+    // Trigger reflow pour Safari/Chrome mobile
     apple.getBoundingClientRect();
   }
 }

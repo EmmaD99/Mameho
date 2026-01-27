@@ -65,7 +65,7 @@ body {
   pointer-events: none;
   transition: opacity 0.4s ease;
   z-index: 2000;
-  overflow: visible; /* visible pour mobiles */
+  overflow: visible;
 }
 
 .menu-overlay.active {
@@ -128,7 +128,7 @@ body {
 
 .apple {
   position: absolute;
-  top: -100px; /* démarre au-dessus de l'écran */
+  top: -100px;
   background-image: url('Photos/Pomme.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -321,13 +321,8 @@ body {
   background: rgba(0,0,0,0.7);
 }
 
-.carousel-btn.prev {
-  left: 20px;
-}
-
-.carousel-btn.next {
-  right: 20px;
-}
+.carousel-btn.prev { left: 20px; }
+.carousel-btn.next { right: 20px; }
 
 /* ===============================
    CONTACT PREMIUM
