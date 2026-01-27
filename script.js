@@ -8,20 +8,29 @@ const appleContainer = document.querySelector('.falling-apples');
 
 function createFallingApples() {
   appleContainer.innerHTML = '';
-  const numberOfApples = window.innerWidth < 600 ? 15 : 30;
+  const numberOfApples = 30; // même nombre desktop & mobile
 
   for (let i = 0; i < numberOfApples; i++) {
     const apple = document.createElement('div');
     apple.classList.add('apple', Math.random() > 0.5 ? 'red' : 'green');
 
-    const size = Math.random() * 5 + 5;
-    apple.style.width = size + 'vw';
-    apple.style.left = Math.random() * 100 + 'vw';
+    // taille aléatoire en pixels (desktop & mobile cohérent)
+    const size = Math.random() * 30 + 30; // 30px à 60px
+    apple.style.width = size + 'px';
+    apple.style.height = size + 'px';
+
+    // position horizontale aléatoire
+    apple.style.left = Math.random() * (window.innerWidth - size) + 'px';
+
+    // durée et délai aléatoire
     apple.style.animationDuration = (4 + Math.random() * 3) + 's';
     apple.style.animationDelay = Math.random() * 2 + 's';
     apple.style.setProperty('--wind', (Math.random() * 80 - 40) + 'px');
 
     appleContainer.appendChild(apple);
+
+    // ⚡️ Force le reflow pour que l'animation démarre correctement sur mobile
+    apple.getBoundingClientRect();
   }
 }
 

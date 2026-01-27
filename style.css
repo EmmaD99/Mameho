@@ -65,7 +65,7 @@ body {
   pointer-events: none;
   transition: opacity 0.4s ease;
   z-index: 2000;
-  overflow: hidden;
+  overflow: visible; /* visible pour mobiles */
 }
 
 .menu-overlay.active {
@@ -122,21 +122,18 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  overflow: hidden;
+  overflow: visible;
   z-index: 0;
 }
 
 .apple {
   position: absolute;
-  top: -10vh;
-  aspect-ratio: 1 / 1;
+  top: -100px; /* démarre au-dessus de l'écran */
   background-image: url('Photos/pomme.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   opacity: 0.95;
-  min-width: 30px;
-  max-width: 80px;
   animation-name: fall;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
@@ -147,8 +144,8 @@ body {
 .apple.green { filter: saturate(1.1); }
 
 @keyframes fall {
-  from { transform: translateY(-10vh) translateX(0) rotate(0deg); }
-  to { transform: translateY(120vh) translateX(var(--wind)) rotate(360deg); }
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
 }
 
 /* ===============================
